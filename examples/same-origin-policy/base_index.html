@@ -12,14 +12,22 @@
   </head>
   <body>
     <div id="app-container">
-      <button id="login">Login</button>
-      <button id="getTodolist">Get Todo List</button>
+
+      <button id="getData">Get Data from another server.</button>
       <script>
-        $('#login').on('click', function(event){
-          alert('login');
-        });
-        $('#getTodolist').on('click', function(event){
-          alert('todo');
+        $('#getData').on('click', function(event){
+          $.ajax({
+            url: 'http://localhost:5000/data',
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(results) {
+              console.log('get data: ', results);
+            },
+            error: function(err) {
+              console.log('Fail to get data');
+            }
+          });
         });
         
       </script>
