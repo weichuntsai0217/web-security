@@ -1,0 +1,19 @@
+{
+  "name": "web-security",
+  "version": "0.0.1",
+  "description": "Examples for web security",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weichuntsai0217/web-security.git"
+  },
+  "author": "Jimmy Tsai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weichuntsai0217/web-security/issues"
+  },
+  "homepage": "https://github.com/weichuntsai0217/web-security#readme"
+}
