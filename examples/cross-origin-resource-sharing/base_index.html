@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+    <script src="js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+    <div id="app-container">
+
+      <button id="POST">POST Data to another domain.</button>
+      <button id="GET">GET Data from another domain.</button>
+      <button id="PUT">PUT Data to another domain.</button>
+      <button id="DELETE">DELETE Data on another domain.</button>
+      <script>
+        $('#POST').on('click', function(event){
+          $.ajax({
+            url: 'http://localhost:5000/data',
+            type: 'POST',
+            data: JSON.stringify({}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(results) {
+              console.log('POST results: ', results);
+            },
+            error: function(err) {
+              console.log('Fail to POST');
+            }
+          });
+        });
+        $('#GET').on('click', function(event){
+          $.ajax({
+            url: 'http://localhost:5000/data',
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(results) {
+              console.log('GET results: ', results);
+            },
+            error: function(err) {
+              console.log('Fail to GET');
+            }
+          });
+        });
+        $('#PUT').on('click', function(event){
+          $.ajax({
+            url: 'http://localhost:5000/data',
+            type: 'PUT',
+            data: JSON.stringify({}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(results) {
+              console.log('PUT results: ', results);
+            },
+            error: function(err) {
+              console.log('Fail to PUT');
+            }
+          });
+        });
+        $('#DELETE').on('click', function(event){
+          $.ajax({
+            url: 'http://localhost:5000/data',
+            type: 'DELETE',
+            data: JSON.stringify({}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(results) {
+              console.log('DELETE results: ', results);
+            },
+            error: function(err) {
+              console.log('Fail to DELETE');
+              // To understand why DELETE fails, please refer to cors.server.js
+            }
+          });
+        });
+      </script>
+    </div>
+    
+  </body>
+</html>
+<!--
+  $.ajax({
+    url: '/users/login',
+    type: 'POST',
+    'contentType': 'application/json',
+    'dataType': 'json',
+    data: JSON.stringify(data),
+    success: function(results) {
+      console.log('login res: ', results);
+    },
+    error: function(err) {
+      console.log('login fail: ', err);
+    }
+  });
+  $.ajax({
+    url: '/todos',
+    type: 'GET',
+    dataType: 'json',
+    success: function(results) {
+      console.log('get Todolist res: ', results);
+    },
+    error: function(err) {
+      console.log('get Todolist: ', err);
+    }
+  });
+-->
